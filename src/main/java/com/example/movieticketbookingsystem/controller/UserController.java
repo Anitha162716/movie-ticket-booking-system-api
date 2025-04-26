@@ -2,6 +2,7 @@ package com.example.movieticketbookingsystem.controller;
 
 import com.example.movieticketbookingsystem.dto.UserRegistrationRequest;
 import com.example.movieticketbookingsystem.dto.UserResponse;
+import com.example.movieticketbookingsystem.dto.UserUpdationRequest;
 import com.example.movieticketbookingsystem.entity.UserDetails;
 import com.example.movieticketbookingsystem.service.UserService;
 import com.example.movieticketbookingsystem.util.ResponseStructure;
@@ -34,10 +35,14 @@ public class UserController {
     private final RestResponseBuilder responseBuilder;
 
     @PostMapping("/register")
-    public ResponseEntity<ResponseStructure<UserDetails>> addUser(
-            @RequestBody UserResponse dto) {
+    public ResponseEntity<ResponseStructure<UserResponse>> addUser(@RequestBody UserRegistrationRequest user){
+        UserResponse userDetails = userService.addUser(user);
+        return responseBuilder.sucess(HttpStatus.OK,"New User Details Has been added", userDetails);
+    }
 
-        UserDetails savedUser = userService.addUser(dto);
-        return responseBuilder.sucess(HttpStatus.OK, "User registered successfully", savedUser);
+    @PutMapping("/users/{email}")
+    public ResponseEntity<ResponseStructure<UserResponse>> editUser(@PathVariable String email, @RequestBody UserUpdationRequest user){
+        UserResponse userDetails = userService.editUser(user, email);
+        return responseBuilder.sucess(HttpStatus.OK,"User Details has been updated", userDetails);
     }
 }
