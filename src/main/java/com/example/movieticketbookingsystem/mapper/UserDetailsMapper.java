@@ -69,8 +69,8 @@ public UserResponse userDetailsResponseMapper(UserDetails userDetails){
     return new UserResponse(
           //  userDetails.getUserId(),
             userDetails.getUsername(),
-            userDetails.getPhoneNumber(),
             userDetails.getEmail(),
+            userDetails.getPhoneNumber(),
             userDetails.getDateOfBirth(),
             userDetails.getUserRole()
     );
