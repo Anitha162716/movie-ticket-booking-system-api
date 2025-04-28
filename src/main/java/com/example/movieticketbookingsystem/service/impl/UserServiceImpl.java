@@ -11,7 +11,6 @@ import com.example.movieticketbookingsystem.exceptions.UserNotFoundByEmailExcept
 import com.example.movieticketbookingsystem.mapper.UserDetailsMapper;
 import com.example.movieticketbookingsystem.repository.UserRepository;
 import com.example.movieticketbookingsystem.service.UserService;
-import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -104,6 +103,5 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(userRole);
         return userRole;
+    }
 }
-}
-
