@@ -5,5 +5,6 @@ import com.example.movieticketbookingsystem.dto.TheaterResponse;
 
 public interface TheaterService {
     TheaterResponse addTheater(String email, TheaterRegistrationRequest theaterRegisterationRequest);
+    TheaterResponse findTheater(String theaterId);
 
 }
