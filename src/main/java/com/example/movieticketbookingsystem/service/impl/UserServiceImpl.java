@@ -115,9 +115,6 @@ public class UserServiceImpl implements UserService {
 //        userRole.setEmail(user.email());
         userRole.setPhoneNumber(user.phoneNumber());
         userRole.setDateOfBirth(user.dateOfBirth());
-
-
-
         userRepository.save(userRole);
         return userRole;
     }

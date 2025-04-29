@@ -1,6 +1,7 @@
 package com.example.movieticketbookingsystem.controller;
 
 import com.example.movieticketbookingsystem.dto.TheaterRegistrationRequest;
+import com.example.movieticketbookingsystem.dto.TheaterRequest;
 import com.example.movieticketbookingsystem.dto.TheaterResponse;
 import com.example.movieticketbookingsystem.service.TheaterService;
 import com.example.movieticketbookingsystem.util.ResponseStructure;
@@ -27,6 +28,12 @@ public class TheaterController {
         TheaterResponse theaterResponse = theaterService.findTheater(theaterId);
         return responseBuilder.sucess(HttpStatus.OK, "Theater has been sucessfully fetched", theaterResponse);
     }
+    @PutMapping("/theaters/{theaterId}")
+    public ResponseEntity<ResponseStructure<TheaterResponse>> updateTheater(@PathVariable String theaterId, @Valid @RequestBody TheaterRequest registerationRequest){
+        TheaterResponse theaterResponse = theaterService.updateTheater(theaterId, registerationRequest);
+        return responseBuilder.sucess(HttpStatus.OK, "Theater has been sucessfully Updated", theaterResponse);
+    }
+
 
 }
 
