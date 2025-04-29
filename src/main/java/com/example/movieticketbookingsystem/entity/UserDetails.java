@@ -24,7 +24,7 @@ import java.time.LocalDate;
 public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private  String userId;
+    private String userId;
     private String username;
     @Column(unique = true)
     private String email;
@@ -33,6 +33,9 @@ public class UserDetails {
     @Enumerated(value = EnumType.STRING)
     private UserRole userRole;
     private LocalDate dateOfBirth;
+    private boolean isDelete;
+    private Instant deletedAt;
+
     @CreatedDate
     private Instant createdAt;
     @LastModifiedDate
