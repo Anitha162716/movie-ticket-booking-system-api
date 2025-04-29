@@ -1,5 +1,6 @@
 package com.example.movieticketbookingsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +20,15 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String seatId;
 
-    @ManyToOne
+    private String name;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Screen screen;
+
+    private Boolean isDelete;
+    private LocalDateTime deletedAt;
+
 
     @CreatedDate
     private LocalDateTime createdAt;
