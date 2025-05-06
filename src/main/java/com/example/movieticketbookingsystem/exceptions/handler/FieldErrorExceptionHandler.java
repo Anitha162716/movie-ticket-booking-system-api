@@ -19,6 +19,7 @@ import java.util.List;
 
 @RestControllerAdvice
 public class FieldErrorExceptionHandler extends ResponseEntityExceptionHandler {
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         List<ObjectError> errors = ex.getAllErrors();
@@ -50,4 +51,3 @@ public class FieldErrorExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 }
-

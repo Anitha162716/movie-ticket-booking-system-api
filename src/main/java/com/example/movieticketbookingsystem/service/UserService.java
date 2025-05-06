@@ -4,12 +4,10 @@ import com.example.movieticketbookingsystem.dto.UserRegistrationRequest;
 import com.example.movieticketbookingsystem.dto.UserResponse;
 import com.example.movieticketbookingsystem.dto.UserUpdationRequest;
 
-public interface UserService
-{
+public interface UserService {
     UserResponse addUser(UserRegistrationRequest user);
 
     UserResponse editUser(UserUpdationRequest user, String email);
+
     UserResponse softDeleteUser(String email);
-
-
 }

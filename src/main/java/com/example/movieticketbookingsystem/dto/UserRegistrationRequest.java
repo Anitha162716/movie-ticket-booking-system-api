@@ -5,11 +5,10 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
-import lombok.Builder;
 
 import java.time.LocalDate;
-@Builder
-public record UserRegistrationRequest(
+
+public  record UserRegistrationRequest(
         @NotNull
         @Pattern(regexp = "^(?=.{3,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z][a-zA-Z0-9._]*[a-zA-Z0-9]$",
                 message = "Username should be minimum of 3 and maximum of 20 alpha-numeric character and can have special characters . and _")

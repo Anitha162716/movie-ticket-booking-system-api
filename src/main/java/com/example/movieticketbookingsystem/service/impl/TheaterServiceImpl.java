@@ -1,6 +1,5 @@
 package com.example.movieticketbookingsystem.service.impl;
 
-import com.example.movieticketbookingsystem.dto.TheaterRegistrationRequest;
 import com.example.movieticketbookingsystem.dto.TheaterRequest;
 import com.example.movieticketbookingsystem.dto.TheaterResponse;
 import com.example.movieticketbookingsystem.entity.Theater;
@@ -19,6 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class TheaterServiceImpl implements TheaterService {
+
     private final TheaterRepository theaterRepository;
     private final TheaterMapper theaterMapper;
     private final UserRepository userRepository;
@@ -35,11 +35,6 @@ public class TheaterServiceImpl implements TheaterService {
     }
 
     @Override
-    public TheaterResponse addTheater(String email, TheaterRegistrationRequest theaterRegistrationRequest) {
-        return null;
-    }
-
-    @Override
     public TheaterResponse findTheater(String theaterId) {
         if(theaterRepository.existsById(theaterId)){
             Theater theater = theaterRepository.findById(theaterId).get();
@@ -49,10 +44,10 @@ public class TheaterServiceImpl implements TheaterService {
     }
 
     @Override
-    public TheaterResponse updateTheater(String theaterId, TheaterRequest registrationRequest) {
+    public TheaterResponse updateTheater(String theaterId, TheaterRequest registerationRequest) {
         if(theaterRepository.existsById(theaterId)) {
             Theater theater = theaterRepository.findById(theaterId).get();
-            theater = copy(registrationRequest, theater);
+            theater = copy(registerationRequest, theater);
             return theaterMapper.theaterResponseMapper(theater);
         }
         throw new TheaterNotFoundByIdException("Theater not found by id");
@@ -61,21 +56,21 @@ public class TheaterServiceImpl implements TheaterService {
 
 
 
-    private Theater copy(TheaterRequest registrationRequest, Theater theater, UserDetails userDetails) {
-        theater.setAddress(registrationRequest.address());
-        theater.setCity(registrationRequest.city());
-        theater.setName(registrationRequest.name());
-        theater.setLandmark(registrationRequest.landmark());
+    private Theater copy(TheaterRequest registerationRequest, Theater theater, UserDetails userDetails) {
+        theater.setAddress(registerationRequest.address());
+        theater.setCity(registerationRequest.city());
+        theater.setName(registerationRequest.name());
+        theater.setLandmark(registerationRequest.landmark());
         theater.setTheaterOwner((TheaterOwner) userDetails);
         theaterRepository.save(theater);
         return theater;
     }
 
-    private Theater copy(TheaterRequest registrationRequest, Theater theater) {
-        theater.setAddress(registrationRequest.address());
-        theater.setCity(registrationRequest.city());
-        theater.setName(registrationRequest.name());
-        theater.setLandmark(registrationRequest.landmark());
+    private Theater copy(TheaterRequest registerationRequest, Theater theater) {
+        theater.setAddress(registerationRequest.address());
+        theater.setCity(registerationRequest.city());
+        theater.setName(registerationRequest.name());
+        theater.setLandmark(registerationRequest.landmark());
         theaterRepository.save(theater);
         return theater;
     }

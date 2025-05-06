@@ -1,6 +1,5 @@
 package com.example.movieticketbookingsystem.security;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -16,6 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
+
     @Bean
     PasswordEncoder passwordEncoder (){
         return new BCryptPasswordEncoder();
@@ -32,10 +32,11 @@ public class SecurityConfig {
                 .authenticated());
 
         http.formLogin(Customizer.withDefaults());
+        // Disable form login
+//        http.formLogin(form -> form.disable());
 
         return http.build();
 
     }
 
 }
-

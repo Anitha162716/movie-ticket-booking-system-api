@@ -1,6 +1,5 @@
 package com.example.movieticketbookingsystem.service.impl;
 
-
 import com.example.movieticketbookingsystem.dto.ScreenRequest;
 import com.example.movieticketbookingsystem.dto.ScreenResponse;
 import com.example.movieticketbookingsystem.entity.Screen;
@@ -91,3 +90,4 @@ public class ScreenServiceImpl implements ScreenService {
 
 
 }
+

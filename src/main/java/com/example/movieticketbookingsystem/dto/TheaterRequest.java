@@ -1,8 +1,10 @@
 package com.example.movieticketbookingsystem.dto;
-import jakarta.validation.constraints.Size;
+
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public record TheaterRequest(
+
         @NotNull(message = "Name is required")
         @Size(min = 1, max = 20, message = "Name cannot be blank")
         String name,
@@ -20,5 +22,3 @@ public record TheaterRequest(
         String landmark
 )
 {}
-
-

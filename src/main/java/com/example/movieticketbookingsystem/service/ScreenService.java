@@ -4,7 +4,9 @@ import com.example.movieticketbookingsystem.dto.ScreenRequest;
 import com.example.movieticketbookingsystem.dto.ScreenResponse;
 
 public interface ScreenService {
+
     ScreenResponse addScreen(ScreenRequest screenRequest, String theaterId);
+
     ScreenResponse findScreen(String theaterId, String screenId);
 
 }

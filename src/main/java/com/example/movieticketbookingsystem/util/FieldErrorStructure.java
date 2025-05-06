@@ -4,13 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 
-@Getter
 @Builder
+@Getter
 public class FieldErrorStructure<T> {
-        private int statusCode;
-        @JsonProperty(namespace = "error_message")
-        private String errorMessage;
-        T data;
-    }
-
-
+    private int statusCode;
+    @JsonProperty(namespace = "error_message")
+    private String errorMessage;
+    T data;
+}

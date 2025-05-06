@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
 public record ScreenRequest(
+
         @NotNull(message = "Screen type is required")
         ScreenType screenType,
 
@@ -17,4 +18,3 @@ public record ScreenRequest(
         Integer noOfRows
 
 ) {}
-

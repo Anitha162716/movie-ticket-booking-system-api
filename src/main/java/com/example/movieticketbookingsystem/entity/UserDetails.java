@@ -5,18 +5,12 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.apache.logging.log4j.CloseableThreadContext;
-import org.springframework.boot.autoconfigure.web.WebProperties;
-import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.security.core.GrantedAuthority;
 
-import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
@@ -24,7 +18,7 @@ import java.util.List;
 @Getter
 @ToString
 @EntityListeners(AuditingEntityListener.class)
-public class UserDetails implements org.springframework.security.core.userdetails.UserDetails {
+public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String userId;
@@ -37,15 +31,11 @@ public class UserDetails implements org.springframework.security.core.userdetail
     private UserRole userRole;
     private LocalDate dateOfBirth;
     private boolean isDelete;
-    private Instant deletedAt;
+    private LocalDateTime deletedAt;
 
     @CreatedDate
-    private Instant createdAt;
+    private LocalDateTime createdAt;
     @LastModifiedDate
-    private Instant updatedAt;
+    private LocalDateTime updatedAt;
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
-    }
 }

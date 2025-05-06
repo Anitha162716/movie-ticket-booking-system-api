@@ -13,16 +13,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @AllArgsConstructor
 public class UserExceptionHandler {
+
     private final RestResponseBuilder responseBuilder;
+
     @ExceptionHandler
-    public ResponseEntity<ErrorStructure> handleUseExistByEmailException(UserExistByEmailException ex){
-return  responseBuilder.errror(HttpStatus.OK, ex.getMessage());
+    public ResponseEntity<ErrorStructure> handleUserExistByEmailException(UserExistByEmailException ex){
+        return responseBuilder.error(HttpStatus.OK, ex.getMessage());
     }
+
     @ExceptionHandler
     public ResponseEntity<ErrorStructure> handleUserNotFoundByEmailException(UserNotFoundByEmailException ex){
-        return responseBuilder.errror(HttpStatus.NOT_FOUND, ex.getMessage());
+        return responseBuilder.error(HttpStatus.NOT_FOUND, ex.getMessage());
     }
-
-
 
 }

@@ -1,6 +1,10 @@
 package com.example.movieticketbookingsystem.exceptions;
 
-public class TheaterNotFoundByIdException extends RuntimeException{
+import lombok.Getter;
+
+@Getter
+public class TheaterNotFoundByIdException extends RuntimeException {
+
     private String message;
 
     public TheaterNotFoundByIdException(String message) {

@@ -1,6 +1,5 @@
 package com.example.movieticketbookingsystem.mapper;
 
-
 import com.example.movieticketbookingsystem.dto.TheaterResponse;
 import com.example.movieticketbookingsystem.entity.Theater;
 import org.springframework.stereotype.Component;
@@ -21,5 +20,4 @@ public class TheaterMapper {
     }
 
 }
-
 
